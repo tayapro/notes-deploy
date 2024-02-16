@@ -10,8 +10,6 @@ function randomString() {
 async function testID() {
     const username = `T_${randomString()}`
     const password = randomString()
-    // const username = 'boss'
-    // const password = 'boss'
 
     const testLogin400 = await idApi.login(username, password)
     if (testLogin400.status !== 400) {
@@ -139,7 +137,7 @@ async function testGetNote(token, noteID, expectedTitle, expectedText) {
     return {
         result: true,
         message: 'PASSED: testGetNote',
-        //noteID: testGoodToken.noteID,
+        noteID,
     }
 }
 
@@ -190,7 +188,7 @@ async function testUpdateNote(token, noteID, updatedData) {
     return {
         result: true,
         message: 'PASSED: testUpdateNote',
-        noteID: testGoodToken.note.id,
+        noteID,
     }
 }
 
@@ -204,7 +202,6 @@ if (!testIDOutput.result) {
 
 console.log(`Username: ${testIDOutput.username}`)
 console.log(`Password: ${testIDOutput.password}`)
-// console.log(`AccessToken: ${testIDOutput.accessToken}`)
 
 for (let i = 0; i < 10; i++) {
     const testAddNoteOutput = await testAddNote(testIDOutput.accessToken)
@@ -258,10 +255,6 @@ for (let n of testListNotesOutput.notes) {
     }
 }
 
-// удалить все ноты
-// и повторить listNotes, но expectedNumber = 0
-// так я убежусь, что все ноты удалены
-
 for (let n of testListNotesOutput.notes) {
     const testDeleteNoteOutput = await testDeleteNote(
         testIDOutput.accessToken,
@@ -280,6 +273,3 @@ if (!testListNotesOutput.result) {
     console.log(testListNotesOutput.message)
     process.exit(1)
 }
-
-// console.log(testIDOutput.accessToken)
-// console.log(testListNotesOutput.notes[0])
