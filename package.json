@@ -1,0 +1,18 @@
+{
+    "name": "notes-test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "apitest.js",
+    "type": "module",
+    "scripts": {
+        "apitest": "node apitest.js",
+        "login": "node tools/login.js",
+        "listnotes": "node tools/listNotes.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.6.7",
+        "dotenv": "^16.4.4"
+    }
+}
