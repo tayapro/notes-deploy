@@ -151,10 +151,10 @@ async function testDeleteNote(token, noteID) {
     }
 
     const testGoodToken = await notesApi.deleteNote(token, noteID)
-    if (testGoodToken.status !== 200) {
+    if (testGoodToken.status !== 204) {
         return {
             result: false,
-            message: `FAILED: testDeleteNote: unexpected good token code ${testGoodToken.status}, expected 200`,
+            message: `FAILED: testDeleteNote: unexpected good token code ${testGoodToken.status}, expected 204`,
         }
     }
 
