@@ -1,18 +1,21 @@
 {
     "name": "notes-test",
     "version": "1.0.0",
+    "author": "Taya Simakova",
     "description": "",
     "main": "apitest.js",
     "type": "module",
     "scripts": {
         "apitest": "node apitest.js",
         "login": "node tools/login.js",
+        "refresh": "node tools/refresh.js",
         "listnotes": "node tools/listNotes.js"
     },
-    "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
-        "axios": "^1.6.7",
-        "dotenv": "^16.4.4"
+        "axios": "^1.6.7"
+    },
+    "devDependencies": {
+        "dotenv": "^16.0.1"
     }
 }

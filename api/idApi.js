@@ -45,7 +45,28 @@ async function register(username, password) {
     }
 }
 
+async function refresh(refreshToken) {
+    try {
+        const { status, data } = await myAxios({
+            url: '/refresh',
+            method: 'post',
+            data: {
+                refreshToken,
+            },
+        })
+        return {
+            status,
+            username: data.username,
+            refreshToken: data.refreshToken,
+            accessToken: data.accessToken,
+        }
+    } catch (e) {
+        return { status: e.response.status, refreshToken: '', accessToken: '' }
+    }
+}
+
 export default {
     login,
     register,
+    refresh,
 }
