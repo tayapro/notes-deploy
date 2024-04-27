@@ -14,6 +14,8 @@ services:
       - ${PWD}/caddy/Caddyfile:/etc/caddy/Caddyfile
       - ${PWD}/caddy/data:/data
     restart: unless-stopped
+    profiles:
+      - allinone
 
   notes-backend:
     image: sti80/notes-backend:0.0.6-alpha
@@ -26,6 +28,9 @@ services:
     ports:
       - 3000:3000
     restart: unless-stopped
+    profiles:
+      - allinone
+      - aws
 
   notes-id:
     image: sti80/notes-id:0.0.6-alpha
@@ -42,6 +47,9 @@ services:
     ports:
       - 3001:3001
     restart: unless-stopped
+    profiles:
+      - allinone
+      - aws
 
   notes-ui:
     image: sti80/notes-ui:0.0.6-alpha
@@ -53,3 +61,5 @@ services:
     ports:
       - 8080:8080
     restart: no
+    profiles:
+      - allinone
