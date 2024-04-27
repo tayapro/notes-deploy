@@ -1,0 +1,5 @@
+notes.secoority.lol {
+  reverse_proxy /api/id/* http://notes-id:3001
+  reverse_proxy /api/backend/* http://notes-backend:3000
+  reverse_proxy http://notes-ui:8080
+}
